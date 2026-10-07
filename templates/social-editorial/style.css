@@ -1,0 +1,25 @@
+@font-face{font-family:Source;src:url('../shared/fonts/source-sans-3-latin.woff2');font-weight:200 900;font-display:block}
+@font-face{font-family:Cormorant;src:url('../shared/fonts/cormorant-garamond-latin.woff2');font-weight:300 700;font-display:block}
+*{box-sizing:border-box}html,body{margin:0;width:2160px;height:2160px;overflow:hidden;background:#f5f2eb;color:#142c36;font-family:Source,sans-serif}
+#social-editorial{position:relative;width:2160px;height:2160px;overflow:hidden}
+.canvas{width:1080px;height:1080px;transform:scale(2);transform-origin:top left;padding:42px 56px 36px;background:radial-gradient(ellipse at 80% 58%,rgba(147,181,163,.10),transparent 56%),#f5f2eb}
+header{height:104px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(142,93,133,.30);padding-bottom:20px}
+.brand{display:flex;align-items:center;gap:18px}.brand img{width:86px;height:86px;object-fit:contain}.brand span{font-size:22px;line-height:1.16;letter-spacing:.015em;font-weight:600}
+.event{font-size:17px;text-align:right;line-height:1.5;color:#4a6169}.event b{font-weight:600}
+.eyebrow{margin:26px 0 10px;color:#805277;letter-spacing:.18em;text-transform:uppercase;font-size:16px;font-weight:600}
+h1{font-family:Cormorant,serif;font-size:66px;line-height:.98;font-weight:600;letter-spacing:-.012em;margin:0;height:148px;display:flex;align-items:flex-start;max-width:900px}
+.hero{height:290px;display:grid;grid-template-columns:440px 1fr;position:relative;margin-top:4px;gap:14px}
+.identity-area{align-self:center;position:relative;z-index:2;padding-right:12px}
+.identities{display:grid;min-height:184px}.identity{grid-area:1/1;align-self:end}
+.state{font-size:15px;text-transform:uppercase;letter-spacing:.13em;color:#805277;font-weight:600;margin-bottom:14px}
+.name{font-family:Cormorant,serif;font-size:45px;line-height:1.03;font-weight:600;margin-bottom:15px}
+.description{font-size:20px;line-height:1.28;color:#40565d}
+.wavebox{margin-top:23px;padding:14px 18px;border:1px solid rgba(142,93,133,.20);border-radius:14px;background:rgba(255,255,255,.42);width:382px;height:66px}
+.wavebox svg{width:346px;height:38px}.wavebox path{stroke:#8e5d85;stroke-width:2.9;stroke-linecap:round;fill:none}
+.portrait-stage{position:relative;display:grid;height:290px;overflow:hidden;border-radius:150px 150px 12px 12px;background:linear-gradient(145deg,rgba(142,93,133,.08),rgba(147,181,163,.14));border:1px solid rgba(142,93,133,.10)}
+.portrait{grid-area:1/1;width:100%;height:290px;object-fit:contain;object-position:center bottom;transform-origin:50% 70%}
+.portrait[data-id=liyang-diao]{object-fit:cover;object-position:50% 0}
+.caption-band{height:320px;margin-top:24px;border-top:1px solid rgba(142,93,133,.5);border-bottom:1px solid rgba(142,93,133,.25);display:flex;align-items:center;justify-content:center;padding:16px 18px;background:rgba(255,255,255,.32)}
+#caption{font-size:78px;line-height:1.12;font-weight:650;text-align:center;margin:0;max-width:920px;white-space:pre-line;text-wrap:balance}
+footer{display:flex;align-items:center;justify-content:space-between;height:48px;font-size:16px;letter-spacing:.02em;color:#4a6169}
+.footer-note{color:#805277}

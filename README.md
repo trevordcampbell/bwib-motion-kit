@@ -6,7 +6,7 @@ It has no dependency on Trevor's computer, Resolve project, event footage or pro
 
 ## Template gallery
 
-Short, silent loops from all five completed 4K designs.
+Short, silent loops from all six completed designs.
 [Jump to setup](#start) · [Higher-resolution stills](previews/README.md).
 
 ### Logo opener
@@ -41,9 +41,17 @@ the audio waveform.
 
 ![Editorial Spotlight moderator handoff with changing featured portraits, captions and an audio waveform](previews/panel-editorial.gif)
 
-The panel GIFs are excerpts from the completed event videos, showing actual speaker
+The landscape panel GIFs are excerpts from the completed event videos, showing actual speaker
 handoffs, captions and waveforms. Use your own edited recording and reviewed speaker
 timings when adapting the templates.
+
+### Square · Social Editorial Spotlight
+
+A phone-focused companion to C, with large captions, a featured speaker and an
+audio readout. This silent preview uses clearly labeled placeholder captions and
+sample portrait handoffs, with no event recording or quoted speech.
+
+![Square Social Editorial Spotlight demo with large phone captions and a portrait handoff](previews/social-editorial.gif)
 
 ## Completed templates
 
@@ -54,8 +62,11 @@ timings when adapting the templates.
 | `sponsor-card` | Event details and authentic sponsor logos | 6 seconds, 30 fps | `config/event.json` |
 | `panel-airy` | A · six-person stage layout with speaking emphasis | 4-second reveal, then discussion; 30 fps | `config/people.json`, `config/panel.json` |
 | `panel-editorial` | C · featured speaker with a complete roster | 4-second reveal, then discussion; 30 fps | `config/people.json`, `config/panel.json` |
+| `social-editorial` | Square · large phone captions and featured speaker | Excerpt starts immediately; 30 fps | `config/social.json`, `config/people.json` |
 
-All templates use a 3840×2160 canvas. They retain the finished photography, typography,
+The five landscape templates use a 3840×2160 canvas. `social-editorial` renders at
+2160×2160, with a 1080×1080 option and the approved 78 px caption size at 1080.
+They retain the finished photography, typography,
 ring choreography and speaker transitions. The default panel configurations are silent layout demos,
 with empty captions and a zero waveform. Their sample speaker changes demonstrate the
 design; import your edited audio and reviewed speaker times for an actual discussion.
@@ -87,6 +98,7 @@ npm run render -- interview-card --1080p
 npm run render -- sponsor-card
 npm run render -- panel-airy
 npm run render -- panel-editorial
+npm run render -- social-editorial --1080p
 ```
 
 Outputs appear in `renders/`. Existing exports are preserved; move an export before
@@ -113,6 +125,11 @@ when adapting the design for a later event.
 by HyperFrames. You can also edit CSS and animation source under `templates/`.
 After changing `templates/logo-opener/opener.js`, run `npm run build` to rebuild its
 Three.js bundle. `package-lock.json` pins Three.js and esbuild; the container pins HyperFrames.
+
+For the square layout, edit `config/social.json` to change its brief headline,
+duration, edited captions and reviewed speaker intervals. All times are relative
+to the excerpt, starting at zero. The default is a nine-second silent layout demo;
+its placeholder text does not represent quotations from the people pictured.
 
 ## Audio and captions
 
@@ -147,6 +164,37 @@ The tool derives the waveform from the actual audio and adds the four-second rev
 to audio, captions and speaking emphasis once. It uses your edited caption text,
 without generating a new transcript or guessing speakers. Panel captions are drawn
 in the video; interview cards contain no dialogue captions.
+
+### Prepare a square social excerpt
+
+Put mastered audio, its corrected SRT and reviewed speaker JSON in
+`assets/user-media/`. Use IDs from `config/people.json`. You can supply a complete
+recording and select its excerpt using source audio seconds:
+
+```sh
+npm run prepare:social -- --audio assets/user-media/panel.wav \
+  --captions assets/user-media/panel.srt \
+  --speakers assets/user-media/speakers.json \
+  --title "Your brief editorial headline" --start 120 --end 137 \
+  --caption-origin 0
+npm run render -- social-editorial --1080p
+```
+
+Use `--caption-origin 3600` only for a source SRT with Resolve's one-hour origin.
+Audio and speaker times use source recording seconds. The tool subtracts the
+chosen excerpt start once and adds no opener or stage-reveal offset. It preserves
+the edited words, trims cue and speaker boundaries, derives the waveform from
+actual excerpt audio and writes a matching zero-based SRT to
+`assets/user-media/social-excerpt.srt`. Use mastered dialogue around −14 LUFS,
+with true peaks below −1 dBTP; the importer retains its gain.
+
+The resulting videos contain the large captions. Copy the matching SRT alongside
+them if you need a separate caption upload. The full-programme interview workflow
+below continues to use separate captions.
+
+Imported captions and waveform data also enter `config/social.json` and generated
+`templates/shared/social-data.js`. Keep these private when they contain an event
+transcript; restore the demo configuration before sharing the reusable source.
 
 ## Assemble in Resolve
 

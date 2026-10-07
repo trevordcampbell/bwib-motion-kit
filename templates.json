@@ -28,5 +28,13 @@
     "name": "C \u00b7 Editorial Spotlight Panel Body",
     "seconds": null,
     "fps": "30"
+  },
+  {
+    "id": "social-editorial",
+    "name": "Square Social Editorial Spotlight",
+    "seconds": null,
+    "fps": "30",
+    "width": 2160,
+    "height": 2160
   }
 ]

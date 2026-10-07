@@ -62,10 +62,31 @@ const c=document.querySelector('.event-label');if(c){c.textContent=e.name;const 
 const f=document.querySelector('.footer p');if(f)f.textContent=e.date;
 };\n'''
     shared.joinpath('config.js').write_text(config)
+    social = read('social')
+    assert isinstance(social['title'], str) and social['title']
+    duration = social['duration']
+    assert math.isfinite(duration) and duration > 0
+    assert social['speakers'], 'Supply reviewed speaker intervals for the social excerpt.'
+    for s in social['speakers']:
+        assert s['id'] in ids and 0 <= s['start'] < s['end'] <= duration
+    for c in social['captions']:
+        assert isinstance(c['text'], str) and 0 <= c['start'] < c['end'] <= duration + .05
+    waveform = social['waveform']
+    assert waveform['hz'] > 0 and waveform['samples'] and all(0 <= s <= 1 for s in waveform['samples'])
+    if social['audio']:
+        local_asset(social['audio'])
+    projection = dict(title=social['title'], duration=duration, people=people,
+                      captions=sorted(social['captions'], key=lambda x:x['start']),
+                      speakers=sorted(social['speakers'], key=lambda x:x['start']),
+                      waveform=waveform['samples'], waveformHz=waveform['hz'],
+                      exampleOnly=social.get('exampleOnly', False))
+    shared.joinpath('social-data.js').write_text('window.BWIB_SOCIAL='+json.dumps(projection,ensure_ascii=False)+';\n')
+    social_entry = ROOT/'templates/social-editorial/index.html'
+    social_entry.write_text(re.sub(r'data-duration="[^"]+"',f'data-duration="{duration}"',social_entry.read_text(),count=1))
     for folder in ['panel-airy','panel-editorial']:
         p=ROOT/f'templates/{folder}/index.html'
         p.write_text(re.sub(r'data-duration="[^"]+"',f'data-duration="{seconds+4}"',p.read_text(),count=1))
-    print('Configured five reusable templates from config/*.json')
+    print('Configured six reusable templates from config/*.json')
 
 
 if __name__ == '__main__':

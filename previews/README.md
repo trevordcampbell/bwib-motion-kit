@@ -23,3 +23,10 @@ actual speaking emphasis, waveforms and captions are supplied for each recording
 ## C · Editorial Spotlight
 
 ![Featured speaker and complete roster](panel-editorial.jpg)
+
+## Square · Social Editorial Spotlight
+
+Phone-sized captions and a compact featured speaker. This silent demo uses
+placeholder text, not quoted speech.
+
+![Square editorial template with large phone captions](social-editorial.jpg)

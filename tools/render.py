@@ -42,6 +42,9 @@ def main():
         elif args.template.startswith('panel-'):
             panel=json.loads((ROOT/'config/panel.json').read_text());duration=panel['discussionDuration']+4;delay=4000
             if panel['audio']:audio=ROOT/panel['audio']
+        elif args.template=='social-editorial':
+            social=json.loads((ROOT/'config/social.json').read_text());duration=social['duration']
+            if social['audio']:audio=ROOT/social['audio']
         if audio:
             chain=(f'adelay={delay}:all=1,' if delay else '')+f'apad=whole_dur={duration}'
             run(['ffmpeg','-hide_banner','-v','error','-i',str(picture),'-i',str(audio),
@@ -51,7 +54,8 @@ def main():
             shutil.move(picture,destination)
             print('Silent output: this template has no local soundtrack or panel audio.')
         if args.hd:
-            run(['ffmpeg','-hide_banner','-v','error','-i',str(destination),'-vf','scale=1920:1080:flags=lanczos',
+            hd_width=round(entry.get('width',3840)/entry.get('height',2160)*1080)
+            run(['ffmpeg','-hide_banner','-v','error','-i',str(destination),'-vf',f'scale={hd_width}:1080:flags=lanczos',
                  '-c:v','libx264','-preset','medium','-crf','18','-pix_fmt','yuv420p','-c:a','copy',
                  '-movflags','+faststart',str(out/f'{args.template}-1080p.mp4')])
     print(destination)

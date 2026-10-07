@@ -17,3 +17,9 @@ The panel stays readable and stable. Avoid continuous camera motion, bouncing fa
 flashes, large idle waves, artwork swaps at the logo ending, invented affiliations
 and unnecessary decorative motion. Match the existing portraits and natural skin.
 Use the approved Liyang portrait with its small lapel microphone.
+
+The square Social Editorial template prioritizes phone playback. Its native canvas
+is 2160×2160, with a 1080×1080 derivative. Captions are 78 px at 1080-height,
+using balanced short lines in a 320 px band. Keep portraits and names visible;
+use a brief headline and preserve the edited caption words and timing. Square
+excerpts begin directly on the discussion, without a stage-reveal offset.
