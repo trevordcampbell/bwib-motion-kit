@@ -1,6 +1,7 @@
-# Completed template previews
+# Template still-image gallery
 
-These are frames from the reusable templates. Panel examples are silent demos;
+For [animated previews, see the main README](../README.md#template-gallery).
+These higher-resolution frames are from the reusable templates. Panel examples are silent demos;
 actual speaking emphasis, waveforms and captions are supplied for each recording.
 
 ## Logo opener

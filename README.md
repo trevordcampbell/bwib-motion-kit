@@ -6,42 +6,44 @@ It has no dependency on Trevor's computer, Resolve project, event footage or pro
 
 ## Template gallery
 
-Snapshots from all five completed 4K templates. [Jump to setup](#start).
+Short, silent loops from all five completed 4K designs.
+[Jump to setup](#start) · [Higher-resolution stills](previews/README.md).
 
 ### Logo opener
 
 Rotating multicolor rings settle into the BWIB logo for a reusable 6.4-second opening.
 
-![Multicolor rings during the BWIB logo opener](previews/logo-opener.jpg)
+![Animated multicolor rings settling into the BWIB logo](previews/logo-opener.gif)
 
 ### Interview card
 
 An animated guest introduction with an editable portrait, name, role and interview topic.
 
-![Interview introduction featuring Yevgenia Khodor Tolan, her portrait and BWIB role](previews/interview-card.jpg)
+![Animated interview introduction featuring Yevgenia Khodor Tolan, her portrait and BWIB role](previews/interview-card.gif)
 
 ### Event and sponsors
 
 A six-second event card with organizer branding and sponsor logos arranged by tier.
 
-![BWIB Fall Fundraiser event details and sponsor logos](previews/sponsor-card.jpg)
+![Animated BWIB Fall Fundraiser event details and sponsor logos](previews/sponsor-card.gif)
 
 ### A · Airy Stage
 
 A six-person stage layout that highlights the active speaker in color while keeping
 the full panel visible.
 
-![Airy Stage panel with six portraits and Samantha Klasfeld highlighted as the speaker](previews/panel-airy.jpg)
+![Airy Stage moderator handoff with color speaker emphasis, captions and an audio waveform](previews/panel-airy.gif)
 
 ### C · Editorial Spotlight
 
 A larger featured speaker beside a complete roster, with space for captions and
 the audio waveform.
 
-![Editorial Spotlight panel with a featured speaker and the complete panel roster](previews/panel-editorial.jpg)
+![Editorial Spotlight moderator handoff with changing featured portraits, captions and an audio waveform](previews/panel-editorial.gif)
 
-The panel snapshots show the kit's sample speaker states. Actual speaker emphasis,
-captions and waveforms come from your edited recording and reviewed speaker timings.
+The panel GIFs are excerpts from the completed event videos, showing actual speaker
+handoffs, captions and waveforms. Use your own edited recording and reviewed speaker
+timings when adapting the templates.
 
 ## Completed templates
 
@@ -54,7 +56,7 @@ captions and waveforms come from your edited recording and reviewed speaker timi
 | `panel-editorial` | C · featured speaker with a complete roster | 4-second reveal, then discussion; 30 fps | `config/people.json`, `config/panel.json` |
 
 All templates use a 3840×2160 canvas. They retain the finished photography, typography,
-ring choreography and speaker transitions. The panel examples are silent layout demos,
+ring choreography and speaker transitions. The default panel configurations are silent layout demos,
 with empty captions and a zero waveform. Their sample speaker changes demonstrate the
 design; import your edited audio and reviewed speaker times for an actual discussion.
 The panel layouts support six people, matching the completed BWIB designs.
@@ -162,7 +164,7 @@ Include `templates`, `config`, `assets`, `tools`, `.devcontainer`, `package.json
 renders, browser caches, verification screenshots and dependencies. Production
 videos, transcripts, Resolve backups and Codex configuration are outside this kit.
 
-See [the preview gallery](previews/README.md) for the completed designs.
+See [the still-image gallery](previews/README.md) for higher-resolution reference frames.
 
 The design guide is [DESIGN.md](DESIGN.md). See [asset and dependency notices](ASSET-NOTICES.md)
 for branding, portrait, font, library and soundtrack provenance. This kit is intended
