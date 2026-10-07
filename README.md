@@ -4,6 +4,45 @@ Reusable motion graphics from the Boston Women in Bioinformatics Fall Fundraiser
 This folder is a standalone project: copy its contents into a new GitHub repository.
 It has no dependency on Trevor's computer, Resolve project, event footage or production folders.
 
+## Template gallery
+
+Snapshots from all five completed 4K templates. [Jump to setup](#start).
+
+### Logo opener
+
+Rotating multicolor rings settle into the BWIB logo for a reusable 6.4-second opening.
+
+![Multicolor rings during the BWIB logo opener](previews/logo-opener.jpg)
+
+### Interview card
+
+An animated guest introduction with an editable portrait, name, role and interview topic.
+
+![Interview introduction featuring Yevgenia Khodor Tolan, her portrait and BWIB role](previews/interview-card.jpg)
+
+### Event and sponsors
+
+A six-second event card with organizer branding and sponsor logos arranged by tier.
+
+![BWIB Fall Fundraiser event details and sponsor logos](previews/sponsor-card.jpg)
+
+### A · Airy Stage
+
+A six-person stage layout that highlights the active speaker in color while keeping
+the full panel visible.
+
+![Airy Stage panel with six portraits and Samantha Klasfeld highlighted as the speaker](previews/panel-airy.jpg)
+
+### C · Editorial Spotlight
+
+A larger featured speaker beside a complete roster, with space for captions and
+the audio waveform.
+
+![Editorial Spotlight panel with a featured speaker and the complete panel roster](previews/panel-editorial.jpg)
+
+The panel snapshots show the kit's sample speaker states. Actual speaker emphasis,
+captions and waveforms come from your edited recording and reviewed speaker timings.
+
 ## Completed templates
 
 | Template | Purpose | Timing | Edit |
