@@ -1,0 +1,15 @@
+name: bwib-motion-kit
+services:
+  motion:
+    build:
+      context: ..
+      dockerfile: .devcontainer/Dockerfile
+    working_dir: /workspace
+    shm_size: 1gb
+    volumes:
+      - ..:/workspace
+      - motion-cache:/home/node/.cache
+    ports:
+      - "127.0.0.1:${BWIB_PREVIEW_PORT:-3040}:3040"
+volumes:
+  motion-cache:

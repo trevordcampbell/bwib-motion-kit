@@ -1,0 +1,13 @@
+/* Shared event module uses the approved A/C type system at 1920 logical pixels. */
+.bwib-event-intro{position:relative;width:100%;height:100%;overflow:hidden;color:#162B36}
+.bwib-event-content{width:1920px;height:1080px;transform-origin:top left;padding:70px 145px 62px;display:flex;flex-direction:column;align-items:center;box-sizing:border-box}
+.bwib-event-eyebrow{font-family:"Source Sans 3",sans-serif;font-size:25px;letter-spacing:.19em;font-weight:500;line-height:32px;margin:0 0 22px}
+.bwib-event-title{font-family:"Cormorant Garamond",serif;font-size:76px;font-weight:600;letter-spacing:-.035em;line-height:1.06;text-align:center;margin:0}
+.bwib-event-subtitle{font-family:"Cormorant Garamond",serif;font-size:47px;font-style:italic;font-weight:500;line-height:1.15;margin:8px 0 0;text-align:center}
+.bwib-event-rule{width:160px;height:4px;display:block;background:#B5A4D8;border-radius:4px;margin:25px 0 30px}
+.bwib-event-sponsors{width:100%;display:flex;flex-direction:column;gap:24px;flex:1}
+.bwib-event-tier{display:flex;flex-direction:column;align-items:center;gap:12px;flex:1;min-height:0}
+.bwib-event-tier-label{font-family:"Source Sans 3",sans-serif;font-size:22px;line-height:27px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;margin:0}
+.bwib-event-marks{display:flex;align-items:center;justify-content:center;gap:105px;flex:1;width:100%;min-height:0}
+.bwib-event-mark{width:360px;height:104px;object-fit:contain;mix-blend-mode:multiply}
+.bwib-mark-zifo{width:280px}.bwib-mark-zs{width:240px;height:98px}.bwib-mark-brandeis{width:330px}

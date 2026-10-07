@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=3840, height=2160">
+<title>BWIB · Airy Stage native 4K</title>
+<link rel="stylesheet" href="stage.css">
+<script src="../shared/gsap.min.js"></script><script src="../shared/panel-data.js"></script>
+<script src="../shared/config.js"></script>
+</head>
+<body>
+<main id="airy-stage-4k" data-composition-id="airy-stage-4k" data-start="0" data-duration="28" data-fps="30" data-width="3840" data-height="2160">
+
+<div id="stage-scene" class="stage-scene" style="opacity:0;visibility:hidden"><div class="logical-stage">
+<svg class="ribbons" viewBox="0 0 1920 1080" aria-hidden="true" data-layout-ignore>
+<path class="ribbon-blue" d="M1160 -110C1410 190 1660 35 2010 290L2010 -100Z"/>
+<path class="ribbon-mint" d="M1440 -90C1650 60 1720 160 2010 120L2010 -100Z"/>
+<path class="ribbon-lilac" d="M1630 -100C1740 65 1800 145 2010 220L2010 -100Z"/>
+<path class="ribbon-blue" d="M-100 780C200 925 425 900 680 1180L-100 1180Z"/>
+<path class="ribbon-mint" d="M-100 865C180 820 420 1090 760 1180L-100 1180Z"/>
+<path class="ribbon-lilac" d="M-100 920C150 1030 230 970 435 1180L-100 1180Z"/>
+</svg>
+<div class="stage-content clip" id="stage-content">
+<header class="masthead"><div class="brand-lockup"><img class="brand" src="../../assets/brand/bwib-full-logo-original.png" alt="Boston Women in Bioinformatics"><p class="brand-name">BOSTON WOMEN<br>IN BIOINFORMATICS</p></div><p class="event">FALL FUNDRAISER 2026</p></header>
+<section class="title-block"><h1>The Data, Tech, and Opportunities</h1><p class="subtitle">Driving a New Era of Women’s Health</p><span class="title-rule" aria-hidden="true"></span></section>
+<section class="lineup" id="lineup" aria-label="Panelists and moderators"></section>
+<section class="caption-region" id="caption-region" aria-label="Edited dialogue captions"></section>
+<footer class="footer"><span class="footer-rule" aria-hidden="true"></span><p>RECORDED OCTOBER 1, 2026</p></footer>
+</div>
+</div></div>
+
+
+</main><script>
+/* Full-panel projection: one cue node and bounded visual updates per seek. */
+(() => {
+  "use strict";
+  const panel = window.BWIB_PANEL;
+  if (!panel) throw new Error("The canonical BWIB panel data is required.");
+  const intro = panel.introDuration;
+  const stageStart = 0;
+  if (intro !== 4) throw new Error("Panel body uses a four-second stage reveal.");
+  const end = panel.duration;
+  if (![intro, end, panel.discussionDuration].every(Number.isFinite) || end <= intro) throw new Error("Invalid panel duration contract.");
+  const root = document.getElementById("airy-stage-4k");
+  root.setAttribute("data-duration", String(end));
+  const lineup = document.getElementById("lineup");
+  const captions = document.getElementById("caption-region");
+  const svgNS = "http://www.w3.org/2000/svg";
+  const cards = new Map();
+  for (const person of panel.people) {
+    const card = document.createElement("article");
+    card.className = "person";
+    card.id = `person-${person.id}`;
+    const portraitWrap = document.createElement("div");
+    portraitWrap.className = "portrait-wrap";
+    const halo = document.createElement("div"); halo.className = "portrait-halo";
+    const portrait = document.createElement("img"); portrait.className = "portrait";
+    portrait.src = person.portrait; portrait.alt = person.name;
+    const portraitFrame = document.createElement("div"); portraitFrame.className = "portrait-frame";
+    if (person.id === "liyang-diao") portrait.setAttribute("data-layout-allow-overflow", "");
+    portraitFrame.append(portrait); portraitWrap.append(halo, portraitFrame);
+    const name = document.createElement("p"); name.className = "person-name"; name.textContent = person.name;
+    const role = document.createElement("p"); role.className = "person-role";
+    role.textContent = person.id === "samantha-klasfeld" || person.id === "liyang-diao" ? "Moderator" : "Panelist";
+    const meter = document.createElement("div"); meter.className = "speaker-meter";
+    const waveform = document.createElementNS(svgNS, "svg"); waveform.classList.add("waveform");
+    waveform.setAttribute("viewBox", "0 0 176 24"); waveform.setAttribute("aria-hidden", "true");
+    const bars = Array.from({length:33}, (_, i) => {
+      const bar=document.createElementNS(svgNS,"rect");
+      bar.setAttribute("x",String(i*5.35)); bar.setAttribute("y","10.5");
+      bar.setAttribute("width","3.2"); bar.setAttribute("height","3"); bar.setAttribute("rx","1.6"); waveform.append(bar); return bar;
+    });
+    const speaking = document.createElement("p"); speaking.className = "speaking"; speaking.textContent = "SPEAKING";
+    meter.append(waveform, speaking); card.append(portraitWrap, name, role, meter); lineup.append(card);
+    cards.set(person.id, { card, portraitWrap, portrait, halo, meter, bars });
+  }
+  const cueNode = document.createElement("p");
+  cueNode.className = "caption";
+  captions.append(cueNode);
+  const cues = panel.captions.toSorted((a, b) => a.start - b.start);
+  const neutralCues = (panel.unassignedCues ?? []).toSorted((a, b) => a.start - b.start);
+  const spans = [];
+  for (const source of panel.speakers.toSorted((a, b) => a.start - b.start)) {
+    const span = {start:source.start, end:source.end, id:source.id};
+    if (!Number.isFinite(span.start) || !Number.isFinite(span.end) || span.end <= span.start) throw new Error("Invalid reviewed speaker span.");
+    spans.push(span);
+  }
+  const maxEnd = [];
+  spans.forEach((span, i) => maxEnd.push(Math.max(span.end, maxEnd[i - 1] ?? -Infinity)));
+  function latestStart(items, time) {
+    let low = 0, high = items.length;
+    while (low < high) {
+      const mid = (low + high) >>> 1;
+      if (items[mid].start <= time) low = mid + 1;
+      else high = mid;
+    }
+    return low - 1;
+  }
+  const clamp = value => Math.max(0, Math.min(1, value));
+  const smooth = value => (1 - Math.cos(Math.PI * clamp(value))) / 2;
+  const people = [...cards.entries()].map(([id, card]) => ({id, ...card, setScale:gsap.quickSetter(card.portraitWrap, "scale")}));
+  const samples = panel.waveform.samples;
+  const sampleHz = panel.waveform.hz;
+  if (!(sampleHz > 0) || !samples.length) throw new Error("The actual panel audio envelope is required.");
+  let currentCaption = null;
+  function project(time) {
+    const candidate = cues[latestStart(cues, time)];
+    const cue = candidate && time >= intro && time < candidate.end && time < end ? candidate : null;
+    if (cue !== currentCaption) {
+      cueNode.textContent = cue?.text ?? "";
+      cueNode.style.opacity = cue ? "1" : "0";
+      cueNode.style.visibility = cue ? "visible" : "hidden";
+      currentCaption = cue;
+    }
+    const emphasis = new Map();
+    const neutralCue = neutralCues[latestStart(neutralCues, time)];
+    let unknown = Boolean(neutralCue && time < neutralCue.end);
+    for (let i = latestStart(spans, time); i >= 0 && maxEnd[i] + .25 > time; i--) {
+      const span = spans[i];
+      if (span.end + .25 <= time) continue;
+      if (!cards.has(span.id)) {
+        if (time < span.end) unknown = true;
+        continue;
+      }
+      const weight = time < span.end ? smooth((time - span.start) / .32) : 1 - smooth((time - span.end) / .25);
+      emphasis.set(span.id, Math.max(weight, emphasis.get(span.id) ?? 0));
+    }
+    const sample = Math.floor(Math.max(0, time - intro) * sampleHz);
+    const heights = Array.from({length:33}, (_, point) => {
+      const index=sample-32+point;
+      const amplitude=time<intro || time>=end || index<0 ? 0 : clamp(samples[index] ?? 0);
+      return 3 + amplitude * 19;
+    });
+    const introGray = smooth((time - intro + .4) / .4);
+    for (const person of people) {
+      const weight = time < intro || time >= end || unknown ? 0 : emphasis.get(person.id) ?? 0;
+      person.setScale(1 + .045 * weight);
+      person.portrait.style.filter = `grayscale(${(time < intro ? introGray : 1 - weight).toFixed(5)})`;
+      person.halo.style.opacity = String(.22 * weight);
+      person.meter.style.opacity = String(weight);
+      person.bars.forEach((bar,i) => {bar.setAttribute("height",heights[i].toFixed(3)); bar.setAttribute("y",((24-heights[i])/2).toFixed(3));});
+    }
+  }
+  // A GSAP-rendered property setter is evaluated even with seek(..., true).
+  // Unlike onUpdate/call callbacks, it cannot be suppressed by the renderer.
+  const projection = {value:0};
+  Object.defineProperty(projection, "progress", {
+    get() { return this.value; },
+    set(value) { this.value = value; project(value); }
+  });
+  const tl = gsap.timeline({paused:true, defaults:{ease:"sine.inOut"}});
+  tl.to(projection, {progress:end, duration:end, ease:"none"}, 0);
+  tl.fromTo("#stage-scene",{autoAlpha:0},{autoAlpha:1,duration:.7,ease:"sine.inOut"},0);
+  tl.from(".masthead", {opacity:0, y:12, duration:.8, ease:"power2.out"},stageStart+.15);
+  tl.from(".title-block h1", {opacity:0, y:18, duration:1, ease:"power2.out"},stageStart+.35);
+  tl.from(".subtitle", {opacity:0, y:12, duration:.9, ease:"power2.out"},stageStart+.65);
+  tl.from(".title-rule", {opacity:0, scaleX:.5, duration:.8},stageStart+.95);
+  tl.from(".person", {opacity:0, y:18, duration:.85, stagger:.11, ease:"power2.out"},stageStart+1.05);
+  tl.from(".footer", {opacity:0, duration:.8},stageStart+1.9);
+  tl.to(".title-block", {scale:.9, duration:.8},intro-.8);
+  tl.to(".stage-content", {opacity:0, duration:.55},end-.55);
+  window.__timelines = window.__timelines || {};
+  window.__timelines["airy-stage-4k"] = tl;
+  window.BWIBKitCustomize();
+  project(0);
+  tl.seek(0);
+})();
+</script>
+</body></html>

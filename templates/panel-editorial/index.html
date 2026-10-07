@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>BWIB · Editorial Spotlight · native 4K Round 2</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="editorial-spotlight-4k" data-composition-id="editorial-spotlight-4k" data-start="0" data-duration="28" data-width="3840" data-height="2160" data-fps="30">
+    <section id="discussion-stage" aria-label="Panel discussion"><div class="scene-content">
+      <header class="masthead">
+        <div class="brand"><img src="../../assets/brand/bwib-full-logo-original.png" alt="BWIB original logo"><span>Boston Women<br>in Bioinformatics</span></div>
+        <div class="event-label">Fall Fundraiser 2026<span>October 1, 2026</span></div>
+      </header>
+      <main class="editorial-grid">
+        <section class="hero" aria-label="Featured speaker">
+          <div class="hero-discussion">
+            <div class="editorial-copy">
+              <div class="eyebrow">The conversation</div>
+              <h1>The Data, Tech,<br>and Opportunities</h1>
+              <p class="theme">Driving a New Era of Women’s Health</p>
+              <div class="speaker-identities" id="speaker-identities"></div>
+              <div class="audio-readout"><svg class="waveform" viewBox="0 0 420 58" role="img" aria-label="Actual panel audio waveform"><path id="waveform-path" d="M0 29H420"/></svg></div>
+            </div>
+            <div class="portrait-stage" id="featured-portraits">
+              <div class="portrait-halo" aria-hidden="true"></div>
+            </div>
+          </div>
+        </section>
+        <aside class="roster-panel" aria-label="Panelists and moderators">
+          <h3>At the table</h3>
+          <div id="roster" class="roster"></div>
+        </aside>
+      </main>
+      <section class="caption-band" aria-label="Edited panel captions"><div id="captions"></div></section>
+      <footer><span>Boston Women in Bioinformatics</span><span class="footer-motto">Connect. Empower. Advance.</span></footer>
+    </div></section>
+  </div>
+  <script src="../shared/gsap.min.js"></script>
+  <script src="../shared/panel-data.js"></script>
+  <script src="../shared/config.js"></script>
+  <script src="composition.js"></script>
+  <script>
+    window.BWIBKitCustomize();
+    const tl = window.createEditorialSpotlight4K();
+    window.__timelines = window.__timelines || {};
+    window.__timelines['editorial-spotlight-4k'] = tl;
+  </script>
+</body>
+</html>

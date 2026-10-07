@@ -1,0 +1,45 @@
+/* Palette and typography: DESIGN.md, direction A · Airy Stage. */
+@font-face{font-family:"Source Sans 3";src:url("../shared/fonts/source-sans-3-latin.woff2") format("woff2");font-weight:200 900;font-style:normal;font-display:block}
+@font-face{font-family:"Cormorant Garamond";src:url("../shared/fonts/cormorant-garamond-latin.woff2") format("woff2");font-weight:300 700;font-style:normal;font-display:block}
+@font-face{font-family:"Cormorant Garamond";src:url("../shared/fonts/cormorant-garamond-italic-latin.woff2") format("woff2");font-weight:300 700;font-style:italic;font-display:block}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:3840px;height:2160px;overflow:hidden;background:#F7F8F5;color:#162B36;font-family:"Source Sans 3",sans-serif}
+#airy-stage-4k{width:3840px;height:2160px;position:relative;overflow:hidden;background:#F7F8F5}
+.ribbons{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.ribbon-blue{fill:#B8DDE8;opacity:.23}.ribbon-mint{fill:#A8D7CE;opacity:.19}.ribbon-lilac{fill:#B5A4D8;opacity:.15}
+.stage-content{position:relative;width:100%;height:100%;padding:54px 92px 48px;display:flex;flex-direction:column;gap:12px}
+.masthead{display:flex;align-items:center;justify-content:space-between;height:104px;flex-shrink:0}
+.brand-lockup{display:flex;align-items:center;gap:8px;height:104px}
+.brand{width:104px;height:104px;object-fit:contain}
+.brand-name{font-size:21px;font-weight:500;line-height:1.5;letter-spacing:.15em}
+.event{font-size:25px;font-weight:500;letter-spacing:.17em}
+.title-block{height:174px;flex-shrink:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;transform-origin:center center}
+.title-block h1{font-family:"Cormorant Garamond",serif;font-size:84px;line-height:1.06;font-weight:600;letter-spacing:-.035em;text-align:center}
+.subtitle{font-family:"Cormorant Garamond",serif;font-size:50px;font-weight:500;font-style:italic;line-height:1.12}
+.title-rule{margin-top:8px;display:block;width:148px;height:4px;background:linear-gradient(90deg,#B5A4D8,#A8D7CE);border-radius:4px}
+.lineup{height:447px;flex-shrink:0;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:18px;align-items:start;padding-top:11px}
+.person{display:flex;flex-direction:column;align-items:center;position:relative;text-align:center;min-width:0}
+.portrait-wrap{width:246px;height:286px;position:relative;transform-origin:center bottom}
+.portrait-halo{position:absolute;inset:8px 3px 0;border-radius:48% 48% 45% 45%;background:#B5A4D8;opacity:0}
+.portrait{position:relative;display:block;width:100%;height:100%;object-fit:contain;object-position:center bottom;filter:grayscale(1);border-radius:45% 45% 40% 40%}
+.person-name{margin-top:16px;font-size:27px;font-weight:600;line-height:1.12;height:58px;display:flex;align-items:center;justify-content:center;max-width:265px;text-wrap:balance}
+.person-role{font-size:19px;font-weight:500;letter-spacing:.15em;text-transform:uppercase;line-height:1.1;margin-top:1px}
+.speaker-meter{height:46px;width:188px;display:flex;flex-direction:column;align-items:center;gap:3px;opacity:0;margin-top:8px}
+.waveform{width:176px;height:24px;overflow:visible}
+.waveform rect{fill:#162B36}
+.speaking{font-size:14px;letter-spacing:.2em;font-weight:500;line-height:16px}
+.speaking:before{content:"";display:inline-block;width:7px;height:7px;background:#B5A4D8;border-radius:50%;margin-right:9px}
+.caption-region{position:relative;flex:1;min-height:156px;display:grid;place-items:center;padding:0 56px}
+.caption{grid-area:1/1;max-width:1590px;width:100%;font-family:"Source Sans 3",sans-serif;font-size:48px;font-weight:500;line-height:1.22;text-align:center;text-wrap:balance;opacity:0;visibility:hidden}
+.footer{height:49px;flex-shrink:0;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:19px}
+.footer-rule{display:block;width:126px;height:3px;background:linear-gradient(90deg,#B5A4D8,#A8D7CE);border-radius:3px}
+.footer p{font-size:18px;letter-spacing:.25em;font-weight:500;line-height:22px}
+
+/* A consistent clipped bust frame for the supplied transparent portraits. */
+.portrait-frame{position:relative;width:100%;height:100%;overflow:hidden;border-radius:45% 45% 40% 40%}
+/* Normalize the current interview bust to the lineup’s head size and eye line. */
+#person-liyang-diao .portrait{object-position:center top;transform:scale(1.4) translateY(14px);transform-origin:center top;border-radius:0}
+
+.prefix-scene,.stage-scene{position:absolute;inset:0;width:3840px;height:2160px;background:#F7F8F5}
+.logical-stage{width:1920px;height:1080px;transform:scale(2);transform-origin:top left;position:relative;overflow:hidden}
+.portrait-halo{box-shadow:0 9px 22px rgba(22,43,54,.08)}

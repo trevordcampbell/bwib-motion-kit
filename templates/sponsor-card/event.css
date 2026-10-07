@@ -1,0 +1,6 @@
+@font-face{font-family:"Source Sans 3";src:url("../shared/fonts/source-sans-3-latin.woff2") format("woff2");font-weight:200 900;font-display:block}
+@font-face{font-family:"Cormorant Garamond";src:url("../shared/fonts/cormorant-garamond-latin.woff2") format("woff2");font-weight:300 700;font-display:block}
+@font-face{font-family:"Cormorant Garamond";src:url("../shared/fonts/cormorant-garamond-italic-latin.woff2") format("woff2");font-weight:300 700;font-style:italic;font-display:block}
+*{box-sizing:border-box}html,body{width:3840px;height:2160px;overflow:hidden;margin:0;background:#F7F8F5}#panel-event-intro-6s{width:3840px;height:2160px}
+
+body{color:#162B36;font-family:"Source Sans 3",sans-serif}#panel-event-intro-6s{position:relative;overflow:hidden}.prefix-scene{position:absolute;inset:0;width:3840px;height:2160px;background:#F7F8F5}

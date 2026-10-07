@@ -1,0 +1,65 @@
+[
+  {
+    "id": 1,
+    "personId": "yevgenia-khodor-tolan",
+    "name": "Yevgenia Khodor Tolan",
+    "role": "President, BWIB",
+    "topic": "Community and the future of BWIB",
+    "portrait": "assets/portraits/yevgenia-khodor-tolan.png",
+    "source": "https://boston-wib.org/team"
+  },
+  {
+    "id": 2,
+    "personId": "yevgenia-khodor-tolan",
+    "name": "Yevgenia Khodor Tolan",
+    "role": "President, BWIB",
+    "topic": "Supporting women's health",
+    "portrait": "assets/portraits/yevgenia-khodor-tolan.png",
+    "source": "https://boston-wib.org/team"
+  },
+  {
+    "id": 3,
+    "personId": "lina-faller",
+    "name": "Lina Faller",
+    "role": "Vice President, BWIB",
+    "topic": "The BWIB community",
+    "portrait": "assets/portraits/lina-faller.png",
+    "source": "https://boston-wib.org/team"
+  },
+  {
+    "id": 4,
+    "personId": "diveena-becker",
+    "name": "Diveena Becker",
+    "role": "Treasurer, BWIB",
+    "topic": "Building the BWIB community",
+    "portrait": "assets/portraits/diveena-becker.png",
+    "source": "https://boston-wib.org/team"
+  },
+  {
+    "id": 5,
+    "personId": "samantha-klasfeld",
+    "name": "Samantha Klasfeld",
+    "role": "Communications Committee Co-Chair, BWIB",
+    "topic": "Finding community",
+    "portrait": "assets/portraits/samantha-klasfeld.png",
+    "source": "https://boston-wib.org/team"
+  },
+  {
+    "id": 6,
+    "personId": "sakina-saif",
+    "name": "Sakina Saif",
+    "role": "Communications Committee Co-Chair, BWIB",
+    "topic": "A decade of community",
+    "portrait": "assets/portraits/sakina-saif.png",
+    "source": "https://boston-wib.org/team"
+  },
+  {
+    "id": 7,
+    "personId": "liyang-diao",
+    "name": "Liyang Diao",
+    "role": "Events Committee Co-Chair, BWIB",
+    "topic": "Connecting the BWIB community",
+    "portrait": "assets/portraits/liyang-diao.png",
+    "source": "https://boston-wib.org/team"
+  }
+]

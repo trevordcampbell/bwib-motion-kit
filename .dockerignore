@@ -1,0 +1,6 @@
+# The image only needs the pinned npm dependency manifests.
+**
+!package.json
+!package-lock.json
+!.devcontainer/
+!.devcontainer/Dockerfile

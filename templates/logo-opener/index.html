@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=3840,height=2160">
+<title>BWIB Logo Opener</title>
+<script src="../shared/gsap.min.js"></script>
+<style>
+@font-face{font-family:BWIBDisplay;src:url(../shared/fonts/cormorant-garamond-latin.woff2)}
+@font-face{font-family:BWIBSans;src:url(../shared/fonts/source-sans-3-latin.woff2)}
+*{box-sizing:border-box}html,body{margin:0;width:3840px;height:2160px;overflow:hidden;background:#F5F2EB}
+#opener{width:3840px;height:2160px;position:relative;overflow:hidden}
+#ribbons{position:absolute;inset:0;width:3840px;height:2160px}
+.name{position:absolute;left:2070px;top:820px;width:1610px;color:#142C36;opacity:0}
+.name h1{font:600 180px/.95 BWIBDisplay;margin:0;letter-spacing:-4px;white-space:nowrap}
+.name p{font:400 110px/1.15 BWIBDisplay;margin:32px 0 0;letter-spacing:-1.3px;white-space:nowrap}
+.name .rule{display:block;margin-top:66px;width:130px;height:4px;background:#8E5D85;transform-origin:0 0}
+#wordmark{position:absolute;left:1400px;top:887px;width:1040px;height:305px;opacity:0}
+#signature{position:absolute;left:0;top:1920px;width:3840px;margin:0;text-align:center;font:400 48px/1.2 BWIBSans;letter-spacing:2px;color:#142C36;opacity:0}
+</style></head><body>
+<main id="opener" data-composition-id="bwib-opener-v4" data-width="3840" data-height="2160" data-start="0" data-duration="6.4" data-fps="30">
+<canvas id="ribbons" width="3840" height="2160" aria-label="Four independently animated multicolor BWIB ribbons" data-layout-ignore></canvas>
+<div class="name"><h1>Boston Women</h1><p>in Bioinformatics</p><span class="rule" aria-hidden="true"></span></div>
+<img id="wordmark" src="../../assets/brand/bwib-wordmark-only-from-supplied-pdf.svg" alt="Women+ in Bioinformatics original outlined wordmark">
+<p id="signature">Boston Women in Bioinformatics</p>
+
+</main>
+<script src="opener.bundle.js"></script>
+<script>window.BWIBV4=window.BWIBV4.create({duration:6.4});window.__timelines=window.__timelines||{};window.__timelines["bwib-opener-v4"]=window.BWIBV4.timeline;</script>
+</body></html>

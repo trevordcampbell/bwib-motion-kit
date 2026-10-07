@@ -1,0 +1,16 @@
+{
+  "name": "bwib-motion-kit",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Reusable BWIB logo, interview, sponsor and panel motion templates",
+  "scripts": {
+    "configure": "python3 tools/configure.py",
+    "build": "npm run configure && esbuild templates/logo-opener/opener.js --bundle --format=iife --minify --legal-comments=eof --outfile=templates/logo-opener/opener.bundle.js",
+    "check": "npm run configure && node tools/check.cjs",
+    "render": "python3 tools/render.py",
+    "preview": "python3 tools/preview.py",
+    "prepare:panel": "python3 tools/prepare_panel.py",
+    "prepare:sting": "python3 tools/prepare_sting.py"
+  },
+  "dependencies": {"esbuild": "0.25.10", "three": "0.180.0"}
+}

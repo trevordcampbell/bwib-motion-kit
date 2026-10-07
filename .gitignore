@@ -1,0 +1,12 @@
+node_modules/
+renders/
+verification/
+.hyperframes/
+**/.hyperframes/
+**/__pycache__/
+.DS_Store
+assets/user-media/*
+!assets/user-media/README.md
+.env
+.env.*
+!.env.example

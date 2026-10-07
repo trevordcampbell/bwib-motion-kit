@@ -1,0 +1,63 @@
+{
+  "name": "BWIB Fall Fundraiser",
+  "date": "October 1, 2026",
+  "title": "The Data, Tech, and Opportunities",
+  "subtitle": "Driving a New Era of Women\u2019s Health",
+  "sponsors": [
+    {
+      "label": "Gold DNA Sponsors",
+      "names": [
+        [
+          "diamond-age",
+          "Diamond Age Data Science",
+          "png"
+        ],
+        [
+          "seqera",
+          "Seqera",
+          "png"
+        ],
+        [
+          "zifo",
+          "Zifo",
+          "png"
+        ]
+      ]
+    },
+    {
+      "label": "Silver RNA Sponsors",
+      "names": [
+        [
+          "benchling",
+          "Benchling",
+          "png"
+        ],
+        [
+          "zs",
+          "ZS",
+          "svg"
+        ]
+      ]
+    },
+    {
+      "label": "Bronze Protein Sponsors",
+      "names": [
+        [
+          "bioteam",
+          "BioTeam",
+          "png"
+        ],
+        [
+          "sprout-informatics",
+          "Sprout Informatics",
+          "png"
+        ],
+        [
+          "brandeis",
+          "Brandeis University",
+          "png"
+        ]
+      ]
+    }
+  ]
+}

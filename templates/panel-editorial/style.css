@@ -1,0 +1,60 @@
+@font-face { font-family:"Source Sans 3"; src:url("../shared/fonts/source-sans-3-latin.woff2") format("woff2"); font-weight:200 900; font-style:normal; font-display:block; }
+@font-face { font-family:"Cormorant Garamond"; src:url("../shared/fonts/cormorant-garamond-latin.woff2") format("woff2"); font-weight:300 700; font-style:normal; font-display:block; }
+@font-face { font-family:"Cormorant Garamond"; src:url("../shared/fonts/cormorant-garamond-italic-latin.woff2") format("woff2"); font-weight:300 700; font-style:italic; font-display:block; }
+:root { --canvas:#F5F2EB; --ink:#142C36; --mauve:#8E5D85; --sage:#93B5A3; }
+* { box-sizing:border-box; }
+html, body { margin:0; width:3840px; height:2160px; overflow:hidden; background:var(--canvas); }
+body { color:var(--ink); font-family:"Source Sans 3",sans-serif; }
+#editorial-spotlight-4k { position:relative; width:3840px; height:2160px; background:var(--canvas); overflow:hidden; }
+.scene-content { width:1920px; height:1080px; transform:scale(2); transform-origin:top left; padding:42px 68px 30px; display:flex; flex-direction:column; gap:24px; }
+.masthead { height:110px; flex-shrink:0; display:flex; justify-content:space-between; align-items:center; }
+.brand { width:470px; height:110px; display:flex; align-items:center; gap:18px; }
+.brand img { width:105px; height:110px; object-fit:contain; }
+.brand span { font-size:24px; font-weight:600; text-transform:uppercase; letter-spacing:.08em; line-height:1.3; }
+.event-label { font-size:25px; font-weight:600; letter-spacing:.18em; text-transform:uppercase; text-align:right; }
+.event-label span { display:block; margin-top:13px; font-size:23px; font-weight:400; letter-spacing:.06em; }
+.editorial-grid { display:grid; grid-template-columns:1270px 1fr; gap:38px; height:640px; flex-shrink:0; }
+.hero { display:grid; min-width:0; min-height:0; position:relative; }
+.hero-discussion { grid-area:1/1; }
+.hero-discussion { display:grid; grid-template-columns:580px 690px; min-height:0; }
+.editorial-copy { display:flex; flex-direction:column; gap:12px; padding:28px 0 12px; z-index:2; min-height:0; }
+.eyebrow { text-transform:uppercase; color:var(--mauve); font-size:23px; letter-spacing:.15em; font-weight:600; }
+ #discussion-stage h1, #discussion-stage h2, .speaker-name { font-family:"Cormorant Garamond",serif; font-weight:600; margin:0; letter-spacing:-.035em; }
+#discussion-stage h1 { font-size:72px; line-height:1.04; }
+.theme { margin:0; max-width:520px; font-family:"Cormorant Garamond",serif; font-size:42px; line-height:1.12; font-style:italic; }
+.speaker-identities { display:grid; margin-top:auto; min-height:184px; }
+.speaker-identity { grid-area:1/1; display:flex; flex-direction:column; justify-content:flex-end; gap:8px; }
+.speaker-state { font-size:21px; text-transform:uppercase; font-weight:600; letter-spacing:.14em; color:var(--mauve); }
+.speaker-name { font-size:48px; line-height:1.05; }
+.speaker-description { font-size:26px; line-height:1.15; max-width:555px; min-height:60px; }
+.waveform { width:420px; height:58px; margin:6px 0 4px; overflow:visible; }
+.waveform path { stroke:var(--mauve); stroke-width:3; stroke-linecap:round; fill:none; }
+.portrait-stage { display:grid; position:relative; align-items:end; overflow:hidden; min-height:0; height:640px; }
+.portrait-halo { position:absolute; width:670px; height:610px; bottom:0; right:0; background:var(--mauve); opacity:.12; border-radius:55% 55% 0 0; }
+.featured-portrait { grid-area:1/1; width:100%; height:640px; object-fit:contain; object-position:center bottom; z-index:1; transform-origin:50% 85%; }
+.featured-portrait[data-person-id="liyang-diao"] { transform:scale(1.35); transform-origin:50% 0; }
+.roster-panel { border-left:1px solid var(--mauve); padding-left:32px; display:flex; flex-direction:column; gap:20px; }
+.roster-panel h3 { text-transform:uppercase; font-size:24px; letter-spacing:.14em; font-weight:600; margin:0; padding-top:9px; }
+.roster { display:flex; flex-direction:column; gap:15px; }
+.roster-person { height:83px; display:grid; grid-template-columns:83px 1fr; gap:19px; align-items:center; }
+.roster-photo { width:83px; height:83px; object-fit:cover; object-position:center 20%; border-radius:50%; background:var(--sage); filter:grayscale(1); }
+.roster-name { font-size:27px; font-weight:600; line-height:1.02; margin-bottom:7px; }
+.roster-role { font-size:19px; line-height:1.1; text-transform:uppercase; letter-spacing:.09em; }
+.caption-band { height:148px; flex-shrink:0; border-top:1px solid var(--mauve); border-bottom:1px solid rgba(142,93,133,.28); display:flex; align-items:center; justify-content:center; padding:12px 50px; }
+#captions { width:100%; display:grid; }
+.caption { grid-area:1/1; max-width:1640px; width:100%; margin:0 auto; text-align:center; font-size:48px; line-height:1.18; font-weight:500; white-space:normal; }
+footer { display:flex; justify-content:space-between; font-size:21px; letter-spacing:.035em; }
+.footer-motto { font-family:"Cormorant Garamond",serif; font-size:25px; font-style:italic; color:var(--mauve); }
+
+/* Native canvas, vector/text stage: no pre-rendered 1080p image is enlarged. */
+.prefix-scene, #discussion-stage { position:absolute; inset:0; width:3840px; height:2160px; background:var(--canvas); }
+#brand-opener-scene { z-index:3; opacity:1; }
+#event-intro-scene { z-index:2; opacity:0; }
+#discussion-stage { z-index:1; opacity:0; }
+.audio-readout { width:448px; height:70px; flex-shrink:0; padding:6px 14px; border:1px solid rgba(142,93,133,.17); border-radius:18px; background:rgba(255,255,255,.38); box-shadow:0 4px 12px rgba(20,44,54,.025); }
+.audio-readout .waveform { display:block; margin:0; }
+.waveform path { stroke-width:3.8; }
+.portrait-stage { border-radius:24px 24px 8px 8px; box-shadow:0 16px 26px rgba(20,44,54,.035); }
+.portrait-halo { opacity:1; background:rgba(142,93,133,.10); box-shadow:inset 0 0 0 1px rgba(142,93,133,.08); }
+.portrait-stage::before { content:""; position:absolute; z-index:0; width:590px; height:570px; bottom:0; right:40px; border:1px solid rgba(147,181,163,.35); border-radius:55% 55% 0 0; }
+/* Scope display rules so shared opener/event typography keeps its own proportions. */

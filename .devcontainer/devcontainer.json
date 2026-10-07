@@ -1,0 +1,12 @@
+{
+  "name": "BWIB Motion Kit",
+  "dockerComposeFile": "compose.yaml",
+  "service": "motion",
+  "workspaceFolder": "/workspace",
+  "remoteUser": "node",
+  "overrideCommand": false,
+  "postCreateCommand": "npm ci --offline --no-audit && npm run build",
+  "shutdownAction": "stopCompose",
+  "forwardPorts": [3040],
+  "portsAttributes": {"3040": {"label": "HyperFrames Studio"}}
+}

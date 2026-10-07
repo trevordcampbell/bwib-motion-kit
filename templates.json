@@ -1,0 +1,32 @@
+[
+  {
+    "id": "logo-opener",
+    "name": "BWIB Logo Opener",
+    "seconds": 6.4,
+    "fps": "30"
+  },
+  {
+    "id": "interview-card",
+    "name": "Personalized Interview Card",
+    "seconds": 6.006,
+    "fps": "60000/1001"
+  },
+  {
+    "id": "sponsor-card",
+    "name": "Event and Sponsor Card",
+    "seconds": 6,
+    "fps": "30"
+  },
+  {
+    "id": "panel-airy",
+    "name": "A \u00b7 Airy Stage Panel Body",
+    "seconds": null,
+    "fps": "30"
+  },
+  {
+    "id": "panel-editorial",
+    "name": "C \u00b7 Editorial Spotlight Panel Body",
+    "seconds": null,
+    "fps": "30"
+  }
+]
